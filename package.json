@@ -1,0 +1,25 @@
+{
+  "name": "js-web-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "jest --watchAll --verbose"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maciejbaba/js-web-server.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maciejbaba/js-web-server/issues"
+  },
+  "homepage": "https://github.com/maciejbaba/js-web-server#readme",
+  "devDependencies": {
+    "jest": "^29.6.3",
+    "nodemon": "^3.0.1"
+  }
+}
