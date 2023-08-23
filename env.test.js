@@ -36,7 +36,7 @@ describe("Environmental variables", () => {
     });
   });
   describe("NODE_ENV", () => {
-    const { NODE_ENV } = require("./server");
+    const { NODE_ENV } = require("./server"); // test is default in jest
     console.log(NODE_ENV);
     it("should be defined", () => {
       expect(NODE_ENV).toBeDefined();
