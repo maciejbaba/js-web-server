@@ -1,4 +1,4 @@
-export class Post {
+class Post {
   constructor(id, content, title, author) {
     this.id = id;
     this.content = content;
@@ -38,3 +38,5 @@ export class Post {
     this.author = author;
   }
 }
+
+module.exports = Post;
