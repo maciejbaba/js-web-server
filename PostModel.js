@@ -22,13 +22,13 @@ class PostModel extends Post {
     if (post) {
       return post;
     }
-    return "Post not found";
+    return null;
   }
   static update(post) {
     const posts = getPosts();
     const postToUpdate = posts.find((p) => p.id === post.id);
     if (!postToUpdate) {
-      return "Post not found";
+      return null;
     }
     const newPosts = posts.map((p) => {
       if (p.id === post.id) {
@@ -63,7 +63,7 @@ class PostModel extends Post {
   static delete(id) {
     const postToDelete = PostModel.getById(id);
     if (!postToDelete) {
-      return "Post not found";
+      return null;
     }
     const newPosts = getPosts().filter((post) => post.id !== id);
     fs.writeFileSync(name, JSON.stringify(newPosts));

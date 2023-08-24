@@ -69,8 +69,8 @@ describe("PostModel class", () => {
       expect(PostModel.getById(post.getId())).toEqual(post);
       PostModel.delete(post.getId());
     });
-    it("has a getById method that returns 'Post not found' if the post doesn't exist", () => {
-      expect(PostModel.getById("not a uuid")).toBe("Post not found");
+    it("has a getById method that returns null if the post doesn't exist", () => {
+      expect(PostModel.getById("not a uuid")).toBe(null);
     });
   });
   describe("update", () => {
@@ -91,13 +91,13 @@ describe("PostModel class", () => {
       PostModel.update(updatedPost);
       expect(PostModel.getById(post.getId())).toEqual(updatedPost);
     });
-    it("has an update method that returns 'Post not found' if the post doesn't exist", () => {
+    it("has an update method that returns null if the post doesn't exist", () => {
       const post = new PostModel({
         title: "title",
         content: "content",
         author: "author",
       }); // no call to PostModel.add so post doesn't exist in db
-      expect(PostModel.update(post)).toBe("Post not found");
+      expect(PostModel.update(post)).toBe(null);
     });
   });
   describe("add", () => {
@@ -156,10 +156,10 @@ describe("PostModel class", () => {
       });
       PostModel.add(post);
       PostModel.delete(post.getId());
-      expect(PostModel.getById(post.getId())).toBe("Post not found");
+      expect(PostModel.getById(post.getId())).toBe(null);
     });
-    it("has a delete method that returns 'Post not found' if the post doesn't exist", () => {
-      expect(PostModel.delete("not a uuid")).toBe("Post not found");
+    it("has a delete method that returns null if the post doesn't exist", () => {
+      expect(PostModel.delete("not a uuid")).toBe(null);
     });
   });
 });
