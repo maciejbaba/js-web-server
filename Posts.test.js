@@ -1,5 +1,7 @@
 const Posts = require("./Posts");
 
+const uuidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-5][0-9a-f]{3}-[089ab][0-9a-f]{3}-[0-9a-f]{12}$/i
+
 const testPost = (post) => {
   it("is an object", () => {
     expect(typeof post).toBe("object");
@@ -7,8 +9,11 @@ const testPost = (post) => {
   it("has property id", () => {
     expect(post.id).toBeDefined();
   });
-  it("property id is a number", () => {
-    expect(typeof post.id).toBe("number");
+  it("property id is a string", () => {
+    expect(typeof post.id).toBe("string");
+  });
+  it("property id is a uuid", () => {
+    expect(post.id).toMatch(uuidRegex);
   });
   it("has property title", () => {
     expect(post.title).toBeDefined();
