@@ -1,11 +1,11 @@
-const routes = require("./routes");
+const routes = require("../routes/routes");
 const {
   getAllPosts,
   getPostById,
   createPost,
   updatePost,
   deletePost,
-} = require("./controllers");
+} = require("../controllers/controllers");
 
 describe("routes", () => {
   it("should be an object", () => {

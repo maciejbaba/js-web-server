@@ -1,7 +1,7 @@
 const Post = require("./Post");
 const getPosts = require("./Posts");
 fs = require("fs");
-const name = "postsData.json";
+const name = "db/postsData.json";
 
 class PostModel extends Post {
   constructor(post) {
@@ -41,7 +41,8 @@ class PostModel extends Post {
   }
 
   static add(post) {
-    if (!(post instanceof Post) || !(post instanceof PostModel)) { // has to be in parentheses because ! has higher precedence than instanceof and condition evaluates incorrectly
+    if (!(post instanceof Post) || !(post instanceof PostModel)) {
+      // has to be in parentheses because ! has higher precedence than instanceof and condition evaluates incorrectly
       return "Not a post";
     }
     if (!post.getTitle()) {

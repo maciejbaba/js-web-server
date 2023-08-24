@@ -1,5 +1,5 @@
 const Post = require("./Post");
-const name = "postsData.json";
+const name = "db/postsData.json";
 const fs = require("fs");
 
 const getPosts = () => {

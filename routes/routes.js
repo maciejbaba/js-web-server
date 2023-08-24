@@ -4,7 +4,7 @@ const {
   createPost,
   updatePost,
   deletePost,
-} = require("./controllers");
+} = require("../controllers/controllers");
 
 const routes = {
   "GET/posts": getAllPosts,

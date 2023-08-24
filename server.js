@@ -1,5 +1,5 @@
 const http = require("http");
-const matchRoute = require("./matchRoute");
+const matchRoute = require("./routes/matchRoute");
 
 const PORT = process.env.PORT || 3000;
 const NODE_ENV = process.env.NODE_ENV || "dev"; // test is default

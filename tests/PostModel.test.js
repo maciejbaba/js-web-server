@@ -1,10 +1,10 @@
-const PostModel = require("./PostModel");
-const Post = require("./Post");
+const PostModel = require("../models/PostModel");
+const Post = require("../models/Post");
 
-const getPosts = require("./Posts");
+const getPosts = require("../models/Posts");
 const oldPosts = getPosts();
 const fs = require("fs");
-const name = "postsData.json";
+const name = "db/postsData.json";
 
 const uuidRegex =
   /^[0-9a-f]{8}-[0-9a-f]{4}-[0-5][0-9a-f]{3}-[089ab][0-9a-f]{3}-[0-9a-f]{12}$/i;

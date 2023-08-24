@@ -1,8 +1,8 @@
-const { server } = require("./server");
+const { server } = require("../server");
 const request = require("supertest");
 const fs = require("fs");
-const name = "postsData.json";
-const getPosts = require("./Posts");
+const name = "db/postsData.json";
+const getPosts = require("../models/Posts");
 
 const oldPosts = getPosts();
 

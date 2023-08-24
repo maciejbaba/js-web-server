@@ -1,4 +1,4 @@
-const { getAllPosts, getPostById, createPost, updatePost, deletePost } = require('./controllers');
+const { getAllPosts, getPostById, createPost, updatePost, deletePost } = require('../controllers/controllers');
 
 describe('controllers', () => {
   describe('getAllPosts', () => {

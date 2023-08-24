@@ -1,5 +1,5 @@
-const matchRoute = require("./matchRoute");
-const routes = require("./routes");
+const matchRoute = require("../routes/matchRoute");
+const routes = require("../routes/routes");
 
 describe("matchRoute", () => {
   it("should be a function", () => {

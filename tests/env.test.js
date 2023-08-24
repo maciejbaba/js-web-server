@@ -9,7 +9,7 @@ describe("Environmental variables", () => {
   });
 
   describe("PORT", () => {
-    const { PORT } = require("./server");
+    const { PORT } = require("../server");
     it("should be defined", () => {
       expect(PORT).toBeDefined();
     });
@@ -21,22 +21,22 @@ describe("Environmental variables", () => {
     });
     it("should be defined", () => {
       process.env.PORT = 5000;
-      const { PORT } = require("./server");
+      const { PORT } = require("../server");
       expect(PORT).toBeDefined();
     });
     it("should be a number", () => {
       process.env.PORT = 5000;
-      const { PORT } = require("./server");
+      const { PORT } = require("../server");
       expect(typeof PORT).toBe("number");
     });
     it("should be 5000", () => {
       process.env.PORT = 5000;
-      const { PORT } = require("./server");
+      const { PORT } = require("../server");
       expect(PORT).toBe(5000);
     });
   });
   describe("NODE_ENV", () => {
-    const { NODE_ENV } = require("./server"); // test is default in jest
+    const { NODE_ENV } = require("../server"); // test is default in jest
     it("should be defined", () => {
       expect(NODE_ENV).toBeDefined();
     });
@@ -48,17 +48,17 @@ describe("Environmental variables", () => {
     });
     it("should be defined", () => {
       process.env.NODE_ENV = "dev";
-      const { NODE_ENV } = require("./server");
+      const { NODE_ENV } = require("../server");
       expect(NODE_ENV).toBeDefined();
     });
     it("should be a string", () => {
       process.env.NODE_ENV = "dev";
-      const { NODE_ENV } = require("./server");
+      const { NODE_ENV } = require("../server");
       expect(typeof NODE_ENV).toBe("string");
     });
     it("should be test", () => {
       process.env.NODE_ENV = "dev";
-      const { NODE_ENV } = require("./server");
+      const { NODE_ENV } = require("../server");
       expect(NODE_ENV).toBe("dev");
     });
   });
