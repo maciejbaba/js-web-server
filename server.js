@@ -1,11 +1,20 @@
 const http = require("http");
-const Posts = require("./Posts");
+const getPosts = require("./Posts");
+const matchRoute = require("./matchRoute");
 
 const PORT = process.env.PORT || 3000;
 const NODE_ENV = process.env.NODE_ENV || "dev"; // test is default
 
 const server = http.createServer((req, res) => {
-  res.end(JSON.stringify(Posts));
+  const { url, method } = req;
+  const matchedRoute = matchRoute(method, url);
+  if (matchedRoute) {
+    const { handler, params } = matchedRoute;
+    handler(req, res, params);
+  } else {
+    res.writeHead(404, { "Content-Type": "text/plain" });
+    res.end("404 Not Found");
+  }
 });
 
 module.exports = {
