@@ -41,7 +41,7 @@ A minimalistic web server built using the native `http` module in Node.js. This 
     ```
     This will run all the tests in the `tests` directory.
 
-## 📦 Built With
+### 📦 Built With
 
 - [Node.js](https://nodejs.org/) - JavaScript runtime environment.
 - [Jest](https://jestjs.io/) - JavaScript testing framework.
@@ -58,3 +58,12 @@ The server exposes the following endpoints:
 - `PUT /users/:id` - Updates a user.
 - `DELETE /users/:id` - Deletes a user.
 
+## 📄 License
+
+This project is licensed under the MIT License.
+
+## 🙏 Acknowledgments
+
+- [Node.js Documentation](https://nodejs.org/en/docs/)
+- [Jest Documentation](https://jestjs.io/docs/en/getting-started)
+- [Supertest Documentation](https://www.npmjs.com/package/supertest)
