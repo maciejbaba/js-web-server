@@ -7,9 +7,11 @@ class Post {
     this.title = title;
     this.author = author;
   }
-
   getId() {
     return this.id;
+  }
+  setId(id) {
+    this.id = id;
   }
 
   getContent() {

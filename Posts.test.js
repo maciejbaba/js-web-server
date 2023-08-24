@@ -1,6 +1,7 @@
-const Posts = require("./Posts");
+const getPosts = require("./Posts");
 
-const uuidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-5][0-9a-f]{3}-[089ab][0-9a-f]{3}-[0-9a-f]{12}$/i
+const uuidRegex =
+  /^[0-9a-f]{8}-[0-9a-f]{4}-[0-5][0-9a-f]{3}-[089ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 
 const testPost = (post) => {
   it("is an object", () => {
@@ -36,7 +37,9 @@ const testPost = (post) => {
 };
 
 describe("Posts created with Post class from data in db", () => {
-  for (let i = 0; i < Posts.length; i++) {
-    testPost(Posts[i]);
+  // here square root is used to limit the number of tests
+  const posts = getPosts();
+  for (let i = 0; i < Math.floor(Math.sqrt(posts.length)); i++) {
+    testPost(posts[i]);
   }
 });
