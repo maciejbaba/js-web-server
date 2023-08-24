@@ -37,11 +37,11 @@ class PostModel extends Post {
       return p;
     });
     fs.writeFileSync(name, JSON.stringify(newPosts));
+    return post;
   }
 
   static add(post) {
     if (!(post instanceof Post) || !(post instanceof PostModel)) { // has to be in parentheses because ! has higher precedence than instanceof and condition evaluates incorrectly
-      console.log("Not a post");
       return "Not a post";
     }
     if (!post.getTitle()) {
@@ -57,11 +57,17 @@ class PostModel extends Post {
     const posts = getPosts();
     const newPosts = [...posts, post];
     fs.writeFileSync(name, JSON.stringify(newPosts));
+    return post;
   }
 
   static delete(id) {
+    const postToDelete = PostModel.getById(id);
+    if (!postToDelete) {
+      return "Post not found";
+    }
     const newPosts = getPosts().filter((post) => post.id !== id);
     fs.writeFileSync(name, JSON.stringify(newPosts));
+    return postToDelete;
   }
 }
 

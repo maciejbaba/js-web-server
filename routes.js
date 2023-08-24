@@ -1,5 +1,5 @@
 const {
-  getPosts,
+  getAllPosts,
   getPostById,
   createPost,
   updatePost,
@@ -7,7 +7,7 @@ const {
 } = require("./controllers");
 
 const routes = {
-  "GET/posts": getPosts,
+  "GET/posts": getAllPosts,
   "GET/posts/:id": getPostById,
   "POST/posts": createPost,
   "PUT/posts/:id": updatePost,

@@ -1,5 +1,4 @@
 const http = require("http");
-const getPosts = require("./Posts");
 const matchRoute = require("./matchRoute");
 
 const PORT = process.env.PORT || 3000;
@@ -10,7 +9,8 @@ const server = http.createServer((req, res) => {
   const matchedRoute = matchRoute(method, url);
   if (matchedRoute) {
     const { handler, params } = matchedRoute;
-    handler(req, res, params);
+    req.params = params;
+    handler(req, res);
   } else {
     res.writeHead(404, { "Content-Type": "text/plain" });
     res.end("404 Not Found");
