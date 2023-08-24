@@ -3,6 +3,11 @@ const PostModel = require("./PostModel");
 
 function getAllPosts(req, res) {
   const posts = getPosts();
+  if (!posts) {
+    res.writeHead(404, { "Content-Type": "text/plain" });
+    res.end("404 Not Found");
+    return "No posts found"
+  };
   res.writeHead(200, { "Content-Type": "application/json" });
   res.end(JSON.stringify(posts));
 }
