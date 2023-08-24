@@ -105,6 +105,35 @@ describe("PostModel", () => {
     expect(PostModel.getById(post.getId())).toEqual(post);
     PostModel.delete(post.getId());
   });
+  it("has an add method that returns 'Not a post' if the post is not an instance of PostModel or Post", () => {
+    const post = {
+      title: "title",
+      content: "content",
+      author: "author",
+    };
+    expect(PostModel.add(post)).toBe("Not a post");
+  });
+  it("has an add method that returns 'Missing title' if the post has no title", () => {
+    const post = new PostModel({
+      content: "content",
+      author: "author",
+    });
+    expect(PostModel.add(post)).toBe("Missing title");
+  });
+  it("has an add method that returns 'Missing content' if the post has no content", () => {
+    const post = new PostModel({
+      title: "title",
+      author: "author",
+    });
+    expect(PostModel.add(post)).toBe("Missing content");
+  });
+  it("has an add method that returns 'Missing author' if the post has no author", () => {
+    const post = new PostModel({
+      title: "title",
+      content: "content",
+    });
+    expect(PostModel.add(post)).toBe("Missing author");
+  });
   it("has a delete method", () => {
     expect(typeof PostModel.delete).toBe("function");
   });

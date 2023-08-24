@@ -40,6 +40,20 @@ class PostModel extends Post {
   }
 
   static add(post) {
+    if (!(post instanceof Post) || !(post instanceof PostModel)) { // has to be in parentheses because ! has higher precedence than instanceof and condition evaluates incorrectly
+      console.log("Not a post");
+      return "Not a post";
+    }
+    if (!post.getTitle()) {
+      return "Missing title";
+    }
+    if (!post.getContent()) {
+      return "Missing content";
+    }
+    if (!post.getAuthor()) {
+      return "Missing author";
+    }
+
     const posts = getPosts();
     const newPosts = [...posts, post];
     fs.writeFileSync(name, JSON.stringify(newPosts));
