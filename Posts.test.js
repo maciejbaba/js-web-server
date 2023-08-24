@@ -1,28 +1,37 @@
 const Posts = require("./Posts");
 
-describe("Posts created with Post class from data in db", () => {
-  it("it has property id", () => {
-    expect(Posts[0].id).toBeDefined();
+const testPost = (post) => {
+  it("is an object", () => {
+    expect(typeof post).toBe("object");
+  });
+  it("has property id", () => {
+    expect(post.id).toBeDefined();
   });
   it("property id is a number", () => {
-    expect(typeof Posts[0].id).toBe("number");
+    expect(typeof post.id).toBe("number");
   });
-  it("it has property title", () => {
-    expect(Posts[0].title).toBeDefined();
+  it("has property title", () => {
+    expect(post.title).toBeDefined();
   });
   it("property title is a string", () => {
-    expect(typeof Posts[0].title).toBe("string");
+    expect(typeof post.title).toBe("string");
   });
-  it("it has property content", () => {
-    expect(Posts[0].content).toBeDefined();
+  it("has property content", () => {
+    expect(post.content).toBeDefined();
   });
   it("property content is a string", () => {
-    expect(typeof Posts[0].content).toBe("string");
+    expect(typeof post.content).toBe("string");
   });
-  it("it has property author", () => {
-    expect(Posts[0].author).toBeDefined();
+  it("has property author", () => {
+    expect(post.author).toBeDefined();
   });
   it("property author is a string", () => {
-    expect(typeof Posts[0].author).toBe("string");
+    expect(typeof post.author).toBe("string");
   });
+};
+
+describe("Posts created with Post class from data in db", () => {
+  for (let i = 0; i < Posts.length; i++) {
+    testPost(Posts[i]);
+  }
 });
